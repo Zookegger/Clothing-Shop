@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content"
+		/>
+		<title>Document</title>
+		<link rel="stylesheet" href="/stylesheets/index.css" />
+	</head>
+	<body>
+		<header>
+			<h1><a href="../index.html">Clothing Brand</a></h1>
+			<nav>
+				<div class="nav left">
+					<select
+						name="Shop"
+						id="shop"
+						onchange="navigateToPage(this.value)"
+					>
+						<option value="" selected>Shop</option>
+						<option value="clothing">Clothing</option>
+						<option value="shoes">Shoes</option>
+						<option value="accessories">Accessories</option>
+					</select>
+					<select
+						name="Pages"
+						id="pages"
+						onchange="navigateToPage(this.value)"
+					>
+						<option value="pages">Pages</option>
+						<option value="idk">Idk what to put</option>
+					</select>
+					<ul>
+						<li>
+							<a href="blog.html">
+								<button class="nav buttons" id="blog">
+									Blog
+								</button>
+							</a>
+						</li>
+						<li>
+							<a href="contact.html">
+								<button class="nav buttons" id="contact">
+									Contact
+								</button>
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				<script>
+					function navigateToPage(pageName) {
+						if (pageName) {
+							window.location.href =
+								window.location.origin +
+								("/pages/" + pageName + ".html");
+							console.log(window.location.href);
+						}
+					}
+				</script>
+
+				<div class="nav right">
+					<input
+						type="text"
+						name="search"
+						id="search"
+						placeholder="Search for items"
+					/>
+					<button type="menu" class="hamburger-menu">
+						<img
+							src="resources/icon/hamburger.png"
+							style="height: 20px; width: auto"
+							alt=""
+						/>
+					</button>
+				</div>
+			</nav>
+			<span style="border-bottom: 2px solid black"> </span>
+		</header>
+		<main>
+			<div class="social-panel">
+				<div><a href="#">Facebook</a></div>
+				<div><a href="#">Instagram</a></div>
+				<div><a href="#">Twitter</a></div>
+				<div><a href="#">Linkedn</a></div>
+			</div>
+		</main>
+		<footer>
+			Made by <a href="">Nguyen Duc Trung</a> | <a>Privacy Policy</a>
+		</footer>
+
+		<!-- <script >
+			window.onload = function () {
+				const selectDefault = document.getElementById(
+					"products-nav-clothing"
+				);
+				selectDefault.focus();
+				selectDefault.classList.add("active");
+			};
+
+			const navButtons = document.querySelectorAll(
+				".products-nav button"
+			);
+			navButtons.forEach((button) => {
+				button.addEventListener("click", function () {
+					// Remove 'active' class from all buttons
+					navButtons.forEach((btn) => btn.classList.remove("active"));
+					// Add 'active' class to the clicked button
+					button.classList.add("active");
+				});
+			});
+		</script> -->
+	</body>
+</html>

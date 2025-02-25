@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content"
+		/>
+		<title>Document</title>
+		<link rel="stylesheet" href="stylesheets/index.css" />
+	</head>
+	<body>
+		<header>
+			<h1><a href="../index.html">Clothing Brand</a></h1>
+			<nav>
+				<div class="nav left">
+					<select name="Shop" id="shop" onchange="navigateToPage(this.value)">
+						<option value="" selected>Shop</option>
+						<option value="clothing">Clothing</option>
+						<option value="shoes">Shoes</option>
+						<option value="accessories">Accessories</option>
+					</select>
+					<select name="Pages" id="pages" onchange="navigateToPage(this.value)">
+						<option value="pages">Pages</option>
+						<option value="idk">Idk what to put</option>
+					</select>
+					<ul>
+						<li>
+							<a href="pages/blog.html">
+								<button class="nav buttons" id="blog">
+									Blog
+								</button>
+							</a>
+						</li>
+						<li>
+							<a href="pages/contact.html">
+								<button class="nav buttons" id="contact">
+									Contact
+								</button>
+							</a>
+						</li>
+					</ul>
+				</div>
+				
+				<script>
+					function navigateToPage(pageName) {
+						if (pageName) {
+							window.location.href = window.location.origin + ("/pages/" + pageName + ".html");
+							console.log(window.location.href);
+						}
+					}
+				</script>
+
+				<div class="nav right">
+					<input
+						type="text"
+						name="search"
+						id="search"
+						placeholder="Search for items"
+					/>
+					<button type="menu" class="hamburger-menu">
+						<img
+							src="resources/icon/hamburger.png"
+							style="height: 20px; width: auto"
+							alt=""
+						/>
+					</button>
+				</div>
+			</nav>
+			<span style="border-bottom: 2px solid black"> </span>
+		</header>
+		<main>
+			<div class="slideshow">
+				<h2>What's new</h2>
+				<div class="image-showcase">
+					<div class="main-image">
+						<img
+							src="https://picsum.photos/600/300"
+							alt="image-main"
+							id="featuredImage"
+						/>
+					</div>
+					<div class="thumbnails" id="thumbnails"></div>
+				</div>
+				<script>
+					const thumbnailsContainer =
+						document.getElementById("thumbnails");
+
+					const images = [
+						"https://picsum.photos/800/500?1",
+						"https://picsum.photos/800/500?2",
+						"https://picsum.photos/800/500?3",
+						"https://picsum.photos/800/500?4",
+						"https://picsum.photos/800/500?5",
+					];
+
+					function updateMainImage(imageUrl) {
+						featuredImage.src = imageUrl;
+					}
+
+					function createThumbnails() {
+						images.forEach((imageUrl) => {
+							const div = document.createElement("div");
+							div.classList.add("item");
+
+							const thumbnail = document.createElement("img");
+							thumbnail.src = imageUrl;
+							thumbnail.alt = "Thumbnail";
+
+							thumbnail.addEventListener("click", () => {
+								updateMainImage(imageUrl);
+							});
+							div.appendChild(thumbnail);
+							thumbnailsContainer.appendChild(div);
+						});
+					}
+					if (images.length > 0) {
+						updateMainImage(images[0]);
+					}
+					createThumbnails();
+					console.log(thumbnailsContainer);
+				</script>
+			</div>
+
+			<div class="clothing-products">
+				<nav class="products-nav">
+					<button type="button" id="products-nav-clothing">
+						Clothing
+					</button>
+					<button type="button" id="products-nav-shoes">Shoes</button>
+					<button type="button" id="products-nav-accessories">
+						Accessories
+					</button>
+				</nav>
+				<div class="item-grid">
+					<a href="">
+						<div class="item-card">
+							<img
+								src="https://picsum.photos/600/300?11"
+								alt="item 1"
+							/>
+							<h3>Item 1</h3>
+							<p>Price: $12</p>
+							<button class="buy-button" id="buy_item_1">
+								Buy
+							</button>
+						</div>
+					</a>
+					<a href="">
+						<div class="item-card">
+							<img
+								src="https://picsum.photos/600/300?12"
+								alt="item 2"
+							/>
+							<h3>Item 2</h3>
+							<p>Price: $321</p>
+							<button class="buy-button" id="buy_item_2">
+								Buy
+							</button>
+						</div>
+					</a>
+					<a href="">
+						<div class="item-card">
+							<img
+								src="https://picsum.photos/600/300?13"
+								alt="item 3"
+							/>
+							<h3>Item 3</h3>
+							<p>Price: $322</p>
+							<button class="buy-button" id="buy_item_3">
+								Buy
+							</button>
+						</div>
+					</a>
+					<a href="">
+						<div class="item-card">
+							<img
+								src="https://picsum.photos/600/300?14"
+								alt="item 4"
+							/>
+							<h3>Item 4</h3>
+							<p>Price: $420.55</p>
+							<button class="buy-button" id="buy_item_4">
+								Buy
+							</button>
+						</div>
+					</a>
+					<a href="">
+						<div class="item-card">
+							<img
+								src="https://picsum.photos/600/300?15"
+								alt="item 5"
+							/>
+							<h3>Item 5</h3>
+							<p>Price: $665.33</p>
+							<button class="buy-button" id="buy_item_5">
+								Buy
+							</button>
+						</div>
+					</a>
+					<a href="">
+						<div class="item-card">
+							<img
+								src="https://picsum.photos/600/300?16"
+								alt="item 6"
+							/>
+							<h3>Item 6</h3>
+							<p>Price: $1000</p>
+							<button class="buy-button" id="buy_item_6">
+								Buy
+							</button>
+						</div>
+					</a>
+					<a href="">
+						<div class="item-card">
+							<img
+								src="https://picsum.photos/600/300?17"
+								alt="item 7"
+							/>
+							<h3>Item 7</h3>
+							<p>Price: $2321</p>
+							<button class="buy-button" id="buy_item_7">
+								Buy
+							</button>
+						</div>
+					</a>
+				</div>
+			</div>
+		</main>
+		<footer>
+			<div>Made by <a href="#">Nguyen Duc Trung</a> | <a href="pages/privacy.html">Privacy Policy</a></div>
+		</footer>
+
+		<!-- <script >
+			window.onload = function () {
+				const selectDefault = document.getElementById(
+					"products-nav-clothing"
+				);
+				selectDefault.focus();
+				selectDefault.classList.add("active");
+			};
+
+			const navButtons = document.querySelectorAll(
+				".products-nav button"
+			);
+			navButtons.forEach((button) => {
+				button.addEventListener("click", function () {
+					// Remove 'active' class from all buttons
+					navButtons.forEach((btn) => btn.classList.remove("active"));
+					// Add 'active' class to the clicked button
+					button.classList.add("active");
+				});
+			});
+		</script> -->
+	</body>
+</html>
